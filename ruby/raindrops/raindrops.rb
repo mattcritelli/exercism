@@ -1,7 +1,5 @@
-require 'pry'
 
 class Raindrops
-
   def self.convert(num)
     factors = []
     count = 1
@@ -25,15 +23,12 @@ class Raindrops
     end
 
     if output.empty?
-      return num.to_s
+      num.to_s
     else
-      return output
+      output
     end
   end
-
 end
-
-#p Raindrops.convert(3)
 
 module BookKeeping
   VERSION = 3
