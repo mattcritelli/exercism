@@ -1,15 +1,8 @@
 class Grains
-  def self.square(num)
+  def self.square(num, product = 2)
     valid(num)
     return 1 if num == 1
-    count = 2
-    product = 2
-
-    while count < num
-      count += 1
-      product *= 2
-    end
-    product
+    product * square(num - 1, product)
   end
 
   def self.total
