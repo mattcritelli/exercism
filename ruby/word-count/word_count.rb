@@ -1,6 +1,4 @@
 class Phrase
-  attr_reader :count
-
   def initialize(phrase)
     @phrase = phrase.downcase
     @counts = {}
