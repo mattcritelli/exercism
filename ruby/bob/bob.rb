@@ -3,27 +3,35 @@ require 'pry-byebug'
 class Bob
 
   def self.hey(remark)
-    # binding.pry
     @remark = remark
     if say_nothing
+      p "say_nothing"
       "Fine. Be that way!"
     elsif question? && !all_caps
+      p "question? && !all_caps"
       "Sure."
     elsif question? && all_caps
+      p "question? && all_caps"
       "Whoa, chill out!"
     elsif question?
+      p "question?"
       "Sure."
-    elsif all_caps
+    elsif all_caps #&& include_letters
+      p "all_caps"
       "Whoa, chill out!"
     else
+      p "else"
       "Whatever."
     end
   end
 
+  # def self.include_letters
+  #   alphabet = [*('a'..'z')]
+  #   @remark.split.any? { |char| alphabet.include?(char)}
+  # end
+
   def self.all_caps
-    #remark_mod = @remark.gsub(/\d/,"")
     @remark.gsub(/\W/,"").split("").all? { |letter| letter == letter.upcase }
-    # binding.pry
   end
 
   def self.question?
@@ -36,5 +44,6 @@ class Bob
 
 end
 
-# remark = "WATCH OUT!"
-# p Bob.hey(remark)
+class BookKeeping
+  VERSION = 1
+end
