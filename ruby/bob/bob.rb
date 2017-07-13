@@ -3,7 +3,6 @@ require 'pry-byebug'
 class Bob
 
   def self.hey(remark)
-    # binding.pry
     @remark = remark
     if say_nothing
       "Fine. Be that way!"
@@ -21,7 +20,6 @@ class Bob
   end
 
   def self.all_caps
-    #remark_mod = @remark.gsub(/\d/,"")
     @remark.gsub(/\W/,"").split("").all? { |letter| letter == letter.upcase }
     # binding.pry
   end
@@ -36,5 +34,6 @@ class Bob
 
 end
 
-# remark = "WATCH OUT!"
-# p Bob.hey(remark)
+class BookKeeping
+  VERSION = 1
+end
