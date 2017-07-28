@@ -21,4 +21,31 @@ class RunLengthEncoding
     end
     output
   end
+
+  def self.decode(input)
+    return '' if input.length.zero?
+    output = ''
+    idx = 0
+    numbers = [*(1..9)]
+
+    while idx < input.length
+      if numbers.include?(input[idx].to_i)
+        count = input[idx]
+        while numbers.include?(input[idx+1].to_i)
+          idx += 1
+          count += input[idx]
+        end
+        count.to_i.times { output += input[idx+1]}
+        idx += 1
+      else
+        output += input[idx]
+      end
+      idx += 1
+    end
+    output
+  end
+end
+
+module BookKeeping
+  VERSION = 3
 end
